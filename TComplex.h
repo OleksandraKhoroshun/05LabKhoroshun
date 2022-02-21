@@ -6,6 +6,7 @@
 
 #include "AComplex.h"
 
+class AComplex;
 class TComplex {
 private:
 	double _ro; // Modulus
@@ -14,6 +15,8 @@ public:
 	TComplex(const double ro = 0, const double phi = 0);
 	TComplex(const TComplex& z);
 	~TComplex();
+
+	operator AComplex() const;
 
 	// Selectors
 	const double& mod() const;
@@ -35,8 +38,5 @@ public:
 
 const TComplex operator*(const TComplex&, const TComplex&);
 const TComplex operator/(const TComplex&, const TComplex&);
-
-bool operator==(const TComplex&, const TComplex&);
-bool operator!=(const TComplex&, const TComplex&);
 
 ostream& operator<<(ostream&, const TComplex&);

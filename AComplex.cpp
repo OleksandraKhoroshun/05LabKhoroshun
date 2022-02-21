@@ -27,6 +27,10 @@ AComplex::~AComplex() {
 #endif
 }
 
+AComplex::operator TComplex() const {
+	return TComplex(mod(), arg());
+}
+
 const double& AComplex::re() const {
 	return _re;
 }

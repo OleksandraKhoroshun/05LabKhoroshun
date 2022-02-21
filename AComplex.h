@@ -7,7 +7,9 @@
 #include <iostream>
 #include <math.h> 
 using namespace std;
+#include "TComplex.h"
 
+class TComplex;
 class AComplex {
 
 private:
@@ -18,6 +20,8 @@ public:
 	AComplex(const double re = 0, const double im = 0);
 	AComplex(const AComplex& z);
 	~AComplex();
+
+	operator TComplex() const;
 
 	// Selectors
 	const double& re() const;

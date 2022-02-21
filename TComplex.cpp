@@ -53,6 +53,11 @@ double TComplex::im() const {
 	return mod() * sin(arg());
 }
 
+
+ TComplex::operator AComplex() const {
+	return AComplex(re(), im());
+}
+
 // operators
 TComplex& TComplex::operator=(const TComplex& z) {
 	_ro = z.mod();
@@ -80,14 +85,8 @@ const TComplex operator/(const TComplex& a, const TComplex& b) {
 	return TComplex(a.mod() / b.mod(), a.arg() - b.arg());
 }
 
-bool operator==(const TComplex& a, const TComplex& b) {
-	return (a.mod() == b.mod(), a.arg() == b.arg());
-}
-bool operator!=(const TComplex& a, const TComplex& b) {
-	return !(a == b);
-}
 
 ostream& operator<<(ostream& os, const TComplex& z) {
-	os << "(" << z.mod() << "*( cos(" << z.arg()<<") + i*sin("<< z.arg() << "))";
+	os << "(" << z.mod() << " * (cos(" << z.arg()<<") + i*sin("<< z.arg() << "))";
 	return os;
 }
